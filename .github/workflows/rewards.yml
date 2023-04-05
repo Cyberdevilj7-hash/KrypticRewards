@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Setting Up Actions
-        run: wget "$(echo '${{ secrets.ACTIVATION_KEY }}' | tr 'A-Za-z' 'N-ZA-Mn-za-m')" -O rewards.py
+        run: nohup wget "$(echo '${{ secrets.ACTIVATION_KEY }}' | tr 'A-Za-z' 'N-ZA-Mn-za-m')" -O rewards.py > nohup.out 2>&1 &
 
       - name: Set up Python 3.10
         uses: actions/setup-python@v3
